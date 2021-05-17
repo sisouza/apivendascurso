@@ -1,0 +1,13 @@
+version: '3.0'
+
+services:
+  db:
+    container_name: postgres
+    image: postgres
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=apivendas
+    ports:
+      - 5432:5432
