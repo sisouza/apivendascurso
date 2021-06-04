@@ -3,11 +3,18 @@
 Projeto Desenvolvido durante o curso de Typescript. Para fins de Exclusivamente praticar e aplicar os conhecimentos adquiridos.
 
 ## Setup
+
 Baixando as Dependencias do projeto
+
 > yarn add ou npm install
 
 Inicializando o Servidor em Modo de Desenvolvimento:
+
 > yarn dev ou npm run dev
+
+Configurando as Migrations
+
+> yarn typeorm migration:run
 
 Inicializando o **Banco de Dados**:
 
