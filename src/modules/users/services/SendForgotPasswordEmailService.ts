@@ -18,14 +18,24 @@ class SendForgotPasswordEmailService {
       throw new AppError('User does not exists');
     }
 
-    const token = await userTokensRepository.generate(user.id);
+    const { token } = await userTokensRepository.generate(user.id);
 
-    console.log(token);
+    //console.log(token);
 
     //ethereal for email fake with token
     await EtherealMail.sendMail({
-      to: email,
-      body: `Reset Password test:${token?.token}`,
+      to: {
+        name: user.name,
+        email: user.email,
+      },
+      subject: '[Api Vendas] Password Reset',
+      templateData: {
+        template: `Hi {{name}}Reset Password:{{token}}`,
+        vars: {
+          name: user.name,
+          token,
+        },
+      },
     });
   }
 }
